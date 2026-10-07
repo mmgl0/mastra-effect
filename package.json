@@ -1,17 +1,21 @@
 {
-	"name": "mastra-effect",
+	"name": "@mmlngl/mastra-effect",
 	"module": "index.ts",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
 	"type": "module",
-	"version": "0.0.1",
+	"version": "0.1.0",
 	"description": "Effect v4 HTTP adapter for Mastra",
 	"scripts": {
-		"build": "bun build --target=node ./src/index.ts --outfile=dist/index.js && bun run build:declaration",
+		"build": "bun build --target=node --external effect --external @mastra/server --external @mastra/core ./src/index.ts --outfile=dist/index.js && bun run build:declaration",
 		"build:declaration": "tsc --emitDeclarationOnly --project tsconfig.types.json",
 		"postbuild": "rimraf tsconfig.types.tsbuildinfo",
 		"test": "vitest run",
-		"typecheck": "tsc --noEmit -p tsconfig.json"
+		"typecheck": "tsc --noEmit -p tsconfig.json",
+		"prepublishOnly": "bun run typecheck && bun run build"
+	},
+	"publishConfig": {
+		"access": "public"
 	},
 	"devDependencies": {
 		"@mastra/mcp": "^2.2.0",
