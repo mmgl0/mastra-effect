@@ -1,0 +1,45 @@
+{
+	"name": "mastra-effect",
+	"module": "index.ts",
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"type": "module",
+	"version": "0.0.1",
+	"description": "Effect v4 HTTP adapter for Mastra",
+	"scripts": {
+		"build": "bun build --target=node ./src/index.ts --outfile=dist/index.js && bun run build:declaration",
+		"build:declaration": "tsc --emitDeclarationOnly --project tsconfig.types.json",
+		"postbuild": "rimraf tsconfig.types.tsbuildinfo",
+		"test": "vitest run",
+		"typecheck": "tsc --noEmit -p tsconfig.json"
+	},
+	"devDependencies": {
+		"@mastra/mcp": "^2.2.0",
+		"@mastra/server-adapters-test-suite": "^0.1.1",
+		"bun-types": "latest",
+		"typescript": "^7",
+		"vitest": "^4",
+		"zod": "^4.6.5"
+	},
+	"peerDependencies": {
+		"typescript": "^7",
+		"effect": "^4.0.1"
+	},
+	"dependencies": {
+		"@mastra/server": "^1.74.0"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/mmgl0/mastra-effect.git"
+	},
+	"keywords": [
+		"effect",
+		"mastra"
+	],
+	"author": "Michele Memoli",
+	"license": "MIT",
+	"files": [
+		"dist/*.js",
+		"dist/*.d.ts"
+	]
+}
