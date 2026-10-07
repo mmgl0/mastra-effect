@@ -4,7 +4,7 @@
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
 	"type": "module",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"description": "Effect v4 HTTP adapter for Mastra",
 	"scripts": {
 		"build": "bun build --target=node --external effect --external @mastra/server --external @mastra/core ./src/index.ts --outfile=dist/index.js && bun run build:declaration",
@@ -36,7 +36,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/mmgl0/mastra-effect.git"
+		"url": "git+https://github.com/mmgl0/mastra-effect.git"
 	},
 	"keywords": [
 		"effect",
